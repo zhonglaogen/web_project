@@ -1,6 +1,7 @@
 package controller;
 
 import entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import service.ITestService;
 import service.impl.UserSeriveIMpl;
 
@@ -14,8 +15,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class TestController extends HttpServlet {
-
-    private ITestService testService = new UserSeriveIMpl();
+    @Autowired
+    private ITestService iTestService;
 
 
     @Override
@@ -29,7 +30,7 @@ public class TestController extends HttpServlet {
 //        System.out.println(id + "----->" + name);
 ////        doPost(req, resp);
         try {
-            User userByID = testService.findUserByID(Integer.valueOf(id));
+            User userByID = iTestService.findUserByID(Integer.valueOf(id));
             if (userByID != null) {
                 resp.getWriter().print(userByID.getName());
             } else {
@@ -49,7 +50,7 @@ public class TestController extends HttpServlet {
         u.setName(name);
         u.setAge(Integer.valueOf(age));
         try {
-            testService.addUser(u);
+            iTestService.addUser(u);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

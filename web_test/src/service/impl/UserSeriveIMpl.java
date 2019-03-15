@@ -2,6 +2,7 @@ package service.impl;
 
 import dao.UserDao;
 import entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import service.ITestService;
 
 import java.io.IOException;
@@ -9,8 +10,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserSeriveIMpl implements ITestService {
-
-    private UserDao userDao = new UserDao();
+    @Autowired
+    private UserDao userDao ;
 
     @Override
     public int addUser(User user) throws SQLException, IOException, ClassNotFoundException {

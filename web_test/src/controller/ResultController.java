@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.mysql.cj.xdevapi.JsonArray;
 import entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import service.ITestService;
 import service.impl.UserSeriveIMpl;
 
@@ -16,9 +17,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResultController extends HttpServlet {
+public class  ResultController extends HttpServlet {
 
-    private ITestService iTestService = new UserSeriveIMpl();
+    @Autowired
+    private ITestService iTestService;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
