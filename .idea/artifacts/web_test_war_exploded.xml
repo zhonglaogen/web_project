@@ -7,6 +7,18 @@
         <element id="directory" name="classes">
           <element id="module-output" name="web_test" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.47" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.12" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.2" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.1.4.RELEASE" />
+        </element>
       </element>
     </root>
   </artifact>

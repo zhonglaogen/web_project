@@ -7,9 +7,10 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="userdao" class="dao.UserDao"></bean>
+    <bean id="userDao" class="dao.UserDao"></bean>
 
-    <bean id="iTestService" class="service.ITestService"></bean>
+    <bean id="userSeriveIMpl" class="service.impl.UserSeriveIMpl"></bean>
 
+    <context:annotation-config/>
 
 </beans>

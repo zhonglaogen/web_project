@@ -2,9 +2,12 @@ package controller;
 
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import service.ITestService;
 import service.impl.UserSeriveIMpl;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServlet;
@@ -15,8 +18,17 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class TestController extends HttpServlet {
+
     @Autowired
-    private ITestService iTestService;
+    private UserSeriveIMpl userSeriveIMpl;
+
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        WebApplicationContext cont = WebApplicationContextUtils.getRequiredWebApplicationContext(config.getServletContext());
+        userSeriveIMpl=(UserSeriveIMpl)cont.getBean("userSeriveIMpl");
+
+    }
 
 
     @Override
@@ -30,7 +42,7 @@ public class TestController extends HttpServlet {
 //        System.out.println(id + "----->" + name);
 ////        doPost(req, resp);
         try {
-            User userByID = iTestService.findUserByID(Integer.valueOf(id));
+            User userByID = userSeriveIMpl.findUserByID(Integer.valueOf(id));
             if (userByID != null) {
                 resp.getWriter().print(userByID.getName());
             } else {
@@ -50,7 +62,7 @@ public class TestController extends HttpServlet {
         u.setName(name);
         u.setAge(Integer.valueOf(age));
         try {
-            iTestService.addUser(u);
+            userSeriveIMpl.addUser(u);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
