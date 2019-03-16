@@ -19,7 +19,7 @@ import java.util.List;
 
 public class  ResultController extends HttpServlet {
 
-    @Autowired
+    //@Autowired servlet不能用注解
     private UserSeriveIMpl userSeriveIMpl;
 
     @Override

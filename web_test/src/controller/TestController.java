@@ -19,7 +19,7 @@ import java.sql.SQLException;
 
 public class TestController extends HttpServlet {
 
-    @Autowired
+    //@Autowired servlet不能用注解
     private UserSeriveIMpl userSeriveIMpl;
 
 
